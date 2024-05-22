@@ -8,14 +8,13 @@
 		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.amigoscode</groupId>
+	<groupId>org.amigoscode</groupId>
 	<artifactId>amigoscode-api</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<organization>
 		<name>luismsantos</name>
 		<url>https://amigoscode.com</url>
 	</organization>
-	<description>Demo project for Spring Boot</description>
 	<properties>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
@@ -151,7 +150,7 @@
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
-				<version>3.4.2</version>
+				<version>3.3.1</version>
 				<configuration>
 					<from>
 						<image>eclipse-temurin:17</image>
@@ -167,7 +166,7 @@
 						</platforms>
 					</from>
 					<to>
-						<image>docker.io/${docker.username}/${project.artifactId}:${project.version}</image>
+						<image>docker.io/${project.organization.name}/${project.artifactId}:${project.version}</image>
 						<tags>
 							<tag>latest</tag>
 						</tags>
