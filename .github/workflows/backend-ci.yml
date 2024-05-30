@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:15.1
+        image: postgres:15.4
         env:
           POSTGRES_USER: amigoscode
           POSTGRES_PASSWORD: password
           POSTGRES_DB: customer
         ports:
-          - 5432:5432
+          - 5332:5432
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
