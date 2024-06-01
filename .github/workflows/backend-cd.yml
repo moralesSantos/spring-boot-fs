@@ -29,10 +29,12 @@ jobs:
       run:
         working-directory: ./backend
     steps:
-      - name: Send Github Action trigger data to Stack workflow
+      - name: Send Slack Message
         run: >
-          curl -X POST -H 'Content-type: application/json'
-          --data '{"text":"Sending Slack a message"}'
+          curl && curl -X POST -H 'Content-type: application/json'
+          --data '
+            {"text":"Sending Slack a message :pikawave: "}
+          '
           ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - uses: actions/checkout@v3
