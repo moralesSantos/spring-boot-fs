@@ -34,7 +34,7 @@ jobs:
       - name: Slack Commit message and sha
         run: >
           curl -X POST -H 'Content-type: application/json'
-          --data '{"text":":github: https://github.com/moralesSantos/spring-boot-fs/commit/${{ github.sha }} - ${{ github.event.head_commit.message }}"}'
+          --data '{"text":":githubloading: https://github.com/moralesSantos/spring-boot-fs/commit/${{ github.sha }} - ${{ github.event.head_commit.message }}"}'
           ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Send slack message
         run: >
