@@ -3,13 +3,11 @@ package com.luis.customer;
 import com.luis.exception.DuplicateResourceExecution;
 import com.luis.exception.RequestValidationException;
 import com.luis.exception.ResourceNotFoundException;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
@@ -43,8 +41,8 @@ class CustomerServiceTest {
         //Given
         int id = 10;
         Customer customer = new Customer(
-                id,"alex", "alex@gmail.com", 19
-        );
+                id,"alex", "alex@gmail.com", 19,
+                Gender.MALE);
         when(customerDAO.selectCustomerById(id)).thenReturn(Optional.of(customer));
         //When
         Customer actual = underTest.getCustomer(id);
@@ -72,7 +70,7 @@ class CustomerServiceTest {
         String email = "alex@gmail.com";
         when(customerDAO.exitsPersonWithEmail(email)).thenReturn(false);
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-                "Alex",email, 19
+                "Alex",email, 19, Gender.MALE
                 );
         //When
         underTest.addCustomer(request);
@@ -93,7 +91,7 @@ class CustomerServiceTest {
         String email = "alex@gmail.com";
         when(customerDAO.exitsPersonWithEmail(email)).thenReturn(true);
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-                "Alex",email, 19
+                "Alex",email, 19, Gender.MALE
         );
         //When
         assertThatThrownBy(()-> underTest.addCustomer(request))
@@ -133,8 +131,8 @@ class CustomerServiceTest {
         //Given
         int id = 10;
         Customer customer = new Customer(
-                "Alex","alex@gmail.com", 19
-        );
+                "Alex","alex@gmail.com", 19,
+                Gender.MALE);
         when(customerDAO.selectCustomerById(id)).thenReturn(Optional.of(customer));
         CustomerUpdateRequest updateRequest =
                 new CustomerUpdateRequest
@@ -159,8 +157,8 @@ class CustomerServiceTest {
         //Given
         int id = 10;
         Customer customer = new Customer(
-                "Alex","alex@gmail.com", 19
-        );
+                "Alex","alex@gmail.com", 19,
+                Gender.MALE);
         when(customerDAO.selectCustomerById(id)).thenReturn(Optional.of(customer));
         CustomerUpdateRequest updateRequest =
                 new CustomerUpdateRequest
@@ -183,8 +181,8 @@ class CustomerServiceTest {
         //Given
         int id = 10;
         Customer customer = new Customer(
-                "Alex","alex@gmail.com", 19
-        );
+                "Alex","alex@gmail.com", 19,
+                Gender.MALE);
         when(customerDAO.selectCustomerById(id)).thenReturn(Optional.of(customer));
         CustomerUpdateRequest updateRequest =
                 new CustomerUpdateRequest
@@ -209,8 +207,8 @@ class CustomerServiceTest {
         // Given
         int id = 10;
         Customer customer = new Customer(
-                id, "Alex", "alex@gmail.com", 19
-        );
+                id, "Alex", "alex@gmail.com", 19,
+                Gender.MALE);
         when(customerDAO.selectCustomerById(id)).thenReturn(Optional.of(customer));
 
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(
@@ -236,8 +234,8 @@ class CustomerServiceTest {
         //Given
         int id = 10;
         Customer customer = new Customer(
-                "Alex","alex@gmail.com", 19
-        );
+                "Alex","alex@gmail.com", 19,
+                Gender.MALE);
         when(customerDAO.selectCustomerById(id)).thenReturn(Optional.of(customer));
         CustomerUpdateRequest updateRequest =
                 new CustomerUpdateRequest
@@ -259,8 +257,8 @@ class CustomerServiceTest {
         //Given
         int id = 10;
         Customer customer = new Customer(
-                "Alex","alex@gmail.com", 19
-        );
+                "Alex","alex@gmail.com", 19,
+                Gender.MALE);
         when(customerDAO.selectCustomerById(id)).thenReturn(Optional.of(customer));
         CustomerUpdateRequest updateRequest =
                 new CustomerUpdateRequest(

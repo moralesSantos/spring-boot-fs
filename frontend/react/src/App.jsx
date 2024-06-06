@@ -53,6 +53,7 @@ const App = () => {
           <WrapItem key={index}>
             <CardWithImage
                 {...customer}
+                imageNumber={index}
             />
           </WrapItem>
         ))}
