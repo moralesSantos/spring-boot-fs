@@ -10,8 +10,10 @@ import {
     Tag,
     useColorModeValue,
   } from '@chakra-ui/react';
+import AlertDialogExample from './DeleteCustomer';
+import UpdateCustomerDrawer from './UpdateCustomerDrawer';
   
-  export default function CardWithImage({id,name,email,age,gender, imageNumber}) {
+  export default function CardWithImage({id,name,email,age,gender, imageNumber, fetchCustomers}) {
 
     const randomUserGender = gender === "MALE" ? "men" : "women"; 
 
@@ -19,9 +21,11 @@ import {
       <Center py={6}>
         <Box
           maxW={'300px'}
+          minW={'300px'}
           w={'full'}
+          m={2}
           bg={useColorModeValue('white', 'gray.800')}
-          boxShadow={'2xl'}
+          boxShadow={'lg'}
           rounded={'md'}
           overflow={'hidden'}>
           <Image
@@ -54,6 +58,17 @@ import {
               <Text color={'gray.500'}>{email}</Text>
               <Text color={'gray.500'}>Age {age} | {gender}</Text>
             </Stack>
+            <Stack direction={'row'} justify={'center'}  spacing={2} p={2}>
+              
+              <UpdateCustomerDrawer 
+              fetchCustomers={fetchCustomers}
+              initialValues={{name,email, age}} 
+              customerId ={id}/>
+
+            <AlertDialogExample customer={{id,name}} fetchCustomers={fetchCustomers}/>  
+            </Stack>
+
+            
           </Box>
         </Box>
       </Center>
