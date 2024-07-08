@@ -1,5 +1,8 @@
 package com.luis.customer;
 
+import com.luis.jwt.JWTUtil;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,28 +13,41 @@ import java.util.List;
 public class CustomerController {
 
     private final CustomerService customerService;
+
+    private final JWTUtil jwtUtil;
+
+
+
     private final CustomerRepository customerRepository;
 
-    public CustomerController(CustomerService customerService, CustomerRepository customerRepository) {
+    public CustomerController(CustomerService customerService, CustomerRepository customerRepository, JWTUtil jwtUtil1) {
         this.customerService = customerService;
         this.customerRepository = customerRepository;
+        this.jwtUtil = jwtUtil1;
     }
 
 
     @GetMapping
-    public List<Customer> getCustomers(){
+    public List<CustomerDTO> getCustomers(){
         return customerService.getAllCustomers();
     }
 
     @GetMapping("{customerId}")
-    public Customer getCustomerById(@PathVariable("customerId") Integer customerId){
+    public CustomerDTO getCustomerById(@PathVariable("customerId") Integer customerId){
         return customerService.getCustomer(customerId);
     }
 
     @PostMapping
-    public void registerCustomer(
+    public ResponseEntity<?> registerCustomer(
             @RequestBody CustomerRegistrationRequest request){
         customerService.addCustomer(request);
+
+        String jwtToken = jwtUtil.issueToken(request.email(), "ROLE_USER");
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.AUTHORIZATION, jwtToken)
+                .build();
+
     }
 
     @DeleteMapping("{customerId}")
