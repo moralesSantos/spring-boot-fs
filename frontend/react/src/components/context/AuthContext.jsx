@@ -6,6 +6,7 @@ const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
   const [customer, setCustomer] = useState(null);
+    console.log("test")
 
   useEffect(() => {
     let token = localStorage.getItem("access_token");

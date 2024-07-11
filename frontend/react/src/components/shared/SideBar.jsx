@@ -41,6 +41,7 @@ const LinkItems = [
   { name: "Settings", icon: FiSettings },
 ];
 
+
 export default function SidebarWithHeader({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (

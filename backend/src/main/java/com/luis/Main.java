@@ -41,6 +41,7 @@ public class Main {
                     gender);
             customerRepository.save(customer);
             System.out.println(email);
+            System.out.println("test");
         };
     }
 
