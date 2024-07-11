@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "amigoscode-react",
-      "image": "luismsantos/amigoscode-react:18.06.2024.05.20.26",
+      "image": "luismsantos/amigoscode-react:11.07.2024.19.23.00",
       "essential": true,
       "memory": 256,
       "portMappings": [
@@ -15,7 +15,7 @@
     },
     {
       "name": "amigoscode-api",
-      "image": "luismsantos/amigoscode-api:08.07.2024.21.08.05",
+      "image": "luismsantos/amigoscode-api:11.07.2024.19.17.22",
       "essential": true,
       "memory": 512,
       "portMappings": [
