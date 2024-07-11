@@ -15,7 +15,7 @@
     },
     {
       "name": "amigoscode-api",
-      "image": "luismsantos/amigoscode-api:08.07.2024.21.08.05",
+      "image": "luismsantos/amigoscode-api:11.07.2024.19.17.22",
       "essential": true,
       "memory": 512,
       "portMappings": [
