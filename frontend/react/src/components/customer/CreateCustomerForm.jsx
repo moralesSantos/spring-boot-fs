@@ -10,8 +10,11 @@ import {
 } from "@chakra-ui/react";
 import { Formik, Form, useField } from "formik";
 import * as Yup from "yup";
-import { saveCustomer } from "../services/client";
-import { successNotification, errorNotification } from "../services/notification";
+import { saveCustomer } from "../../services/client";
+import {
+  successNotification,
+  errorNotification,
+} from "../../services/notification";
 
 const MyTextInput = ({ label, ...props }) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -49,7 +52,7 @@ const MySelect = ({ label, ...props }) => {
 };
 
 // And now we can use these
-const CreateCustomerForm = ({fetchCustomers}) => {
+const CreateCustomerForm = ({ fetchCustomers }) => {
   return (
     <>
       <Formik
@@ -58,6 +61,7 @@ const CreateCustomerForm = ({fetchCustomers}) => {
           email: "",
           age: "",
           gender: "",
+          password: "",
         }}
         validationSchema={Yup.object({
           name: Yup.string()
@@ -73,8 +77,11 @@ const CreateCustomerForm = ({fetchCustomers}) => {
           gender: Yup.string()
             .oneOf(["MALE", "FEMALE"], "Invalid gender")
             .required("Required"),
+          password: Yup.string()
+            .min(4, "Must be 4 characters or more")
+            .max(15, "Must be 15 characters or less")
+            .required("Required"),
         })}
-
         onSubmit={(customer, { setSubmitting }) => {
           setSubmitting(true);
           saveCustomer(customer)
@@ -83,22 +90,17 @@ const CreateCustomerForm = ({fetchCustomers}) => {
               successNotification(
                 "Customer saved",
                 `${customer.name} was successfully saved`
-              )
-              fetchCustomers();  
+              );
+              fetchCustomers();
             })
             .catch((err) => {
               console.log(err);
-              errorNotification(
-                err.code,
-                err.response.data.message
-              )
+              errorNotification(err.code, err.response.data.message);
             })
             .finally(() => {
               setSubmitting(false);
             });
-        }
-      
-      }
+        }}
       >
         {({ isValid, isSubmitting }) => (
           <Form>
@@ -122,6 +124,13 @@ const CreateCustomerForm = ({fetchCustomers}) => {
                 name="age"
                 type="number"
                 placeholder="16"
+              />
+
+              <MyTextInput
+                label="Password"
+                name="password"
+                type="password"
+                placeholder="change-me"
               />
 
               <MySelect label="Gender" name="gender">

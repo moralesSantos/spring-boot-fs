@@ -10,11 +10,11 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import React from "react";
-import { deleteCustomer } from "../services/client";
+import { deleteCustomer } from "../../services/client";
 import {
   successNotification,
   errorNotification,
-} from "../services/notification";
+} from "../../services/notification";
 
 const AlertDialogExample = ({ customer, fetchCustomers }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();

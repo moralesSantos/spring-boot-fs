@@ -2,9 +2,10 @@ import { Wrap, WrapItem, Spinner, Text } from "@chakra-ui/react";
 import SidebarWithHeader from "./components/shared/SideBar";
 import { useEffect, useState } from "react";
 import { getCustomers } from "./services/client";
-import CardWithImage from "./components/card";
-import CreateCustomerDrawer from "./components/CreateCustomerDrawer";
-import UpdateCustomerDrawer from "./components/UpdateCustomerDrawer";
+import CardWithImage from "./components/customer/card";
+import CreateCustomerDrawer from "./components/customer/CreateCustomerDrawer";
+import { errorNotification } from "./services/notification";
+
 
 const App = () => {
   const [customers, setCustomers] = useState([]);
