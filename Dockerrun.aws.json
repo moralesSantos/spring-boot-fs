@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "amigoscode-react",
-      "image": "luismsantos/amigoscode-react:11.07.2024.19.23.00",
+      "image": "luismsantos/amigoscode-react:11.07.2024.19.44.59",
       "essential": true,
       "memory": 256,
       "portMappings": [
