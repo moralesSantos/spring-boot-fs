@@ -25,7 +25,7 @@ import {
         const navigate = useNavigate();
         useEffect((customer)=>{
           if(customer){
-            navigate("/dashboard")
+            navigate("/dashboard/customers")
           }
         })
       
