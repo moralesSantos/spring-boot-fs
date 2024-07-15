@@ -121,6 +121,9 @@ const Login = () => {
             Sign in to your account
           </Heading>
           <LoginForm />
+          <Link color={"blue.500"} href="/signup">
+            Don't have an account? Signup now. 
+          </Link>
         </Stack>
       </Flex>
       <Flex

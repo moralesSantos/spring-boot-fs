@@ -9,7 +9,7 @@ import {
   DrawerCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import CreateCustomerForm from "./CreateCustomerForm";
+import CreateCustomerForm from "../shared/CreateCustomerForm";
 
 const AddIcon = () => "+";
 const CloseIcon = () => "x";
@@ -29,7 +29,7 @@ const CreateCustomerDrawer = ({fetchCustomers}) => {
 
           <DrawerBody>
             <CreateCustomerForm 
-                fetchCustomers = {fetchCustomers}
+                onSuccess = {fetchCustomers}
             />
           </DrawerBody>
 
