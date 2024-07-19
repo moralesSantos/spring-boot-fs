@@ -34,7 +34,7 @@ import {
             <Flex p={8} flex={1} align={"center"} justifyContent={"center"}>
               <Stack spacing={4} w={"full"} maxW={"md"}>
                 <Image
-                  src={"src/assets/amigoscode_logo.jpeg"}
+                  src={"https://user-images.githubusercontent.com/40702606/210880158-e7d698c2-b19a-4057-b415-09f48a746753.png"}
                   boxSize={"200px"}
                   alt={"Logo"}
                 />
@@ -69,7 +69,7 @@ import {
                 alt={"Login Image"}
                 objectFit={"scale-down"}
                 src={
-                  "https://user-images.githubusercontent.com/40702606/215539167-d7006790-b880-4929-83fb-c43fa74f429e.png"
+                  "https://user-images.githubusercontent.com/40702606/210880158-e7d698c2-b19a-4057-b415-09f48a746753.png"
                 }
               />
             </Flex>
