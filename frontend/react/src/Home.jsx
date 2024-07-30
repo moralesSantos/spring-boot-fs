@@ -7,6 +7,7 @@ const Home = () => {
     return (
     <SidebarWithHeader >
         <Text fontSize={"6xl"} >Dashboard</Text>
+        <p>Go click out Customers tab and test out my website.</p>
     </SidebarWithHeader>
 
     )}
