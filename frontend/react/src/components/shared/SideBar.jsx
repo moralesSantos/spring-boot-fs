@@ -87,7 +87,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         <Image
           borderRadius="full"
           boxSize="40px"
-          src="./src/assets/amigoscode_logo.jpeg"
+          src="https://user-images.githubusercontent.com/40702606/210880158-e7d698c2-b19a-4057-b415-09f48a746753.png"
           alt="Amigoscode"
         />
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
